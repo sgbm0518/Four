@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StandardController!{% endblock %}
+
+{% block body %}
+{# <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    {{ controller_name }}
+    
+    Soy Desarrollador de Software
+    <ul>
+        <li>Your controller at <code><a href="{{ '/Library/WebServer/Documents/my-projects/four/src/Controller/StandardController.php'|file_link(0) }}">src/Controller/StandardController.php</a></code></li>
+        <li>Your template at <code><a href="{{ '/Library/WebServer/Documents/my-projects/four/templates/standard/index.html.twig'|file_link(0) }}">templates/standard/index.html.twig</a></code></li>
+    </ul>
+</div> #}
+
+
+       {# Estos corchetes son para comentarios #}
+    {% set Mivariable = 'Hola mundo' %} {#-----{%  %}----- -> esta es una sintaxis que sirve para llamar funciones, variables, condicionales o ciclos  
+                                         hay en la documentacion de symfony hay una funcion set -> sirve para definir una variable dentro de twig y asignarle un valor
+                                         para que funcione mi funcion, se debe imprimir de la siguiente forma {{ Mivariable }}    #}
+    {{ Mivariable }} <br>       {# recordar que el valor de mi variable es hola mundo #}  
+
+    {{ SumaEntreNumeroUnoYNumero2 }}   {# Aqui se esta imprimiendo la variable de la suma #}
+    <br>          
+
+    {% if Num1>Num2 %}     {# aqui lo que se esta haciendo es una comparacion de si el num1 es mayor que el Num2, 
+                              que en este caso es falso #}
+        Numero 1 es mayor
+    {% else %}
+        Numero 2 es mayor
+    {% endif %}  
+    <br> 
+    {{ nombres | upper  }}  {# El lowerfiltro convierte un valor a Mayusculas:#}
+    {# {{ nombres | lower  }} -> El lowerfiltro convierte un valor a minúsculas:#}
+
+    <br>
+    <br>
+
+    {% set ArrayNombres = nombres | split (',') %} 
+    {% for nombre in ArrayNombres %} {#Aca lo que estamos haciendo es iterar un arreglo en symfony, por medio de un for #}
+        * {{ nombre }} <br>
+    {% endfor %}
+    {# {{ ArrayNombres }} -> No lo podemos imprimir en pantalla porque no es una cadena de texto es un arraglo, 
+                            por ende vamos hacer un for #}
+    
+
+        <a href="{{ path('pagina2',{'nombre':'Sergio Giovanni Beltran madrid'}) }}">Ir a pagina 2</a>
+{% endblock %}
